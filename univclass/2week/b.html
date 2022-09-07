@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>순서없는 목록 (Unordered List)</h2>
+  <ul>
+    <li>Coffee</li>
+    <ul>
+      <li>Ice Americano</li>
+      <li>Latte</li>
+    </ul>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ul>
+  <br><br>
+  <h2>순서있는 목록 (Ordered List)</h2>
+  <ol type="I">
+    <li>Coffee</li>
+    <ol type="a">
+      <li>Ice Americano</li>
+      <li>Latte</li>
+    </ol>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>
+  <br><br><br>
+  <hr>
+  <h2>Table Sample</h2>
+  <table border="1" style="text-align: center;">
+    <tr>
+      <td><b>First name</b></td>
+      <td><b>Last name</b></td>
+      <td><b>Score name</b></td>
+    </tr>
+    <tr>
+      <th>First name</th>
+      <!-- th는 td와 b가 합쳐진 것이다. -->
+      <th>Last name</th>
+      <th>Score name</th>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+      <td>84</td>
+    </tr>
+  </table>
+  <br><br>
+  <hr>
+  <h2>2개의 Column을 span</h2>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th colspan="2">Telephone</th>
+    </tr>
+    <tr>
+      <td>Bill Gates</td>
+      <td>555 77 854</td>
+      <td>555 77 855</td>
+    </tr>
+  </table>
+  <h2>2개의 Row을 span</h2>
+  <table border="1">
+    <tr>
+      <th>Name:</th>
+      <td>Bill Gates</td>
+    </tr>
+    <tr>
+      <th rowspan="2">Telephone</th>
+      <td>555 77 854</td>
+    </tr>
+    <tr>
+      <td>555 77 855</td>
+    </tr>
+  </table>
+</body>
+
+</html>

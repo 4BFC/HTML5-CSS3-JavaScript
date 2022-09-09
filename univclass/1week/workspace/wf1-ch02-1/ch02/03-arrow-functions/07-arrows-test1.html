@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Arrow Functions</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Arrow Functions</h1>
+<p>Open the console</p>
+<script type="module">
+
+/* ch02-03-08-arrows-test1.html */
+
+console.log(this);	         // undefined
+
+// 일반 함수
+const gangwon = {
+  resorts: ["용평","평창","강촌","강릉","홍천"],
+  print: function(delay=1000) {
+    console.log(this);       // gangwon
+    setTimeout(function() {
+      console.log(this);     // Window
+      console.log(this.resorts.join(","))
+    }, delay)  // 바인딩 하지 않으면 this = window
+  }
+}
+
+gangwon.print()
+
+</script>
+</body>
+</html>

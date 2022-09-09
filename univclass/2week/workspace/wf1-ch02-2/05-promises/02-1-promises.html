@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Promises with fetch</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Promises with fetch</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+/* ch02-05-02-1-promises.html */
+
+// fetch("https://api.randomuser.me/?nat=US&results=10")
+// .then(response => response.json())
+// .then(members => members.results)
+// .then(console.log)
+// .catch(console.error)
+
+fetch("https://api.randomuser.me/?nat=US&results=10")   // URL로부터 데이터를 받음
+.then(response => response.json())                      // 응답을 json 형태로 변환하여 반환
+.then(members => members.results)                       // 응답 객체의 results 속성을 반환
+.then(data => console.log(data))                        // 반환된 데이터를 console에 출력
+.catch(err => console.error(err))                       // 에러가 발생한 경우 console에 에러 출력
+
+</script>
+</body>
+</html>

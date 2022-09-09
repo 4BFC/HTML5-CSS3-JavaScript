@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Spread Operator</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Spread Operator</h1>
+<p>Open the console</p>
+<script type="text/babel">
+
+/* ch02-04-15-spread-operator.html */
+ 
+// 객체에 대한 스프레드 연산자
+const morning = {
+  breakfast: "미역국",
+  lunch: "삼치구이와 보리밥"
+}
+const dinner = "스테이크 정식"
+const backpackingMeals = {
+  ...morning,   // morning 과 비교
+  dinner
+}
+
+console.log(backpackingMeals)
+
+</script>
+</body>
+</html>

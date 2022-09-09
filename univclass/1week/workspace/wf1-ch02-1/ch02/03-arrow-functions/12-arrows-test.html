@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
+  <meta charset="utf-8">
+  <title>Arrow Functions</title>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <h1>Arrow Functions</h1>
+  <p>Open the console</p>
+  <script type="module">
+
+    /* ch02-03-12-arrows-test.html */
+
+    console.log('scope: global')
+    console.log(this);                 // undefined
+
+    let attr = 'attr';
+    console.log(attr);                 // attr
+
+    const obj = {
+      obj_attr: 'obj_attr',
+
+      func: function () { // =? func(){~}
+        console.log('obj.func(): ');
+        console.log(this);             // obj
+        console.log(this.obj_attr);    // obj.obj_attr === obj_attr
+
+        const funcFunc1 = function () { //일반 함수/암묵적 함수
+          console.log('obj.func(funcFunc1()): w/o binding');
+          console.log(this);           // undefined
+        };
+        funcFunc1();
+
+        const funcFunc2 = () => {
+          console.log('obj.func(funcFunc2()): arrow funcFunc2()');
+          console.log(this);           // obj
+          console.log(this.obj_attr);  // obj.obj_attr == obj_attr
+        };
+        funcFunc2();
+
+        const funcFunc3 = function () {
+          console.log('obj.func(funcFunc3().bind(obj)): with bind(this) && this === obj ');
+          console.log(this);           // obj
+          console.log(this.obj_attr);  // obj.obj_attr == obj_attr
+        }.bind(this);                  // bind(this <-- obj)
+        funcFunc3();
+
+        setTimeout(function () {
+          console.log('obj.func(setTimeout(function()))');
+          console.log(this);           // this === window
+          console.log(this === window)    // true
+          console.log(this === undefined) // false
+        }, 0);
+
+        setTimeout(() => {
+          console.log('obj.func(setTimeout(()=>{}))');
+          console.log(this);           // this === obj
+          console.log(this.obj_attr);  // obj.obj_attr === obj_attr
+        }, 0);
+
+      }//func(){
+
+      ,
+
+      arrow: () => {
+        console.log('obj.arrow(): ');
+        console.log(this);             // undefined
+
+        const arrowFunc1 = function () {
+          console.log('obj.arrow(arrowFunc1()):');
+          console.log(this);           // undefined
+        };
+        arrowFunc1();
+
+        const arrowFunc2 = () => {
+          console.log('obj.arrow(arrowFunc2()): arrow arrowFunc2()');
+          console.log(this);           // undefined
+        };
+        arrowFunc2();
+
+        const arrowFunc3 = function () {
+          console.log('obj.arrow(arrowFunc3().bind(this)): with bind(this) && this === undefined ');
+          console.log(this);           // undefined
+        }.bind(this);                  // bind(this <-- undefined)
+        arrowFunc3();
+
+        const arrowFunc4 = function () {
+          console.log('obj.arrow(arrowFunc4().bind(obj)): with bind(obj)');
+          console.log(this);           // obj
+          console.log(this.obj_attr);  // obj.obj_attr === obj_attr
+        }.bind(obj);                   // bind(this <-- obj)
+        arrowFunc4();
+      },
+    }
+
+    obj.func();
+    obj.arrow();
+
+  </script>
+</body>
+
+</html>
